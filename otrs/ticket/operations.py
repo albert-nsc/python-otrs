@@ -43,7 +43,7 @@ class TicketCreate(Ticket):
                        dynamic_fields=dynamic_fields,
                        attachments=attachments, **kwargs)
         elements = self._unpack_resp_several(ret)
-        infos = {extract_tagname(i): int(i.text) for i in elements}
+        infos = {extract_tagname(i): i.text for i in elements}
         return infos['TicketID'], infos['TicketNumber']
 
 
